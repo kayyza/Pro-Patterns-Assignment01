@@ -1,6 +1,6 @@
 package org.example;
 
-public class Patient<T> {
+public class Patient {
     private String name;
     private int age;
     private String severity;

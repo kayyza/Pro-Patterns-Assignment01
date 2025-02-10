@@ -11,7 +11,7 @@ public class Hospital<T> {
 
         public Node(T patient, Node<T> next) {
             this.patient = patient;
-            next = null;
+            this.next = next;
         }
     }
 
@@ -19,27 +19,33 @@ public class Hospital<T> {
     adds a new patient
      */
     public void addPatient(T patient) {
+        Node<T> newNode = new Node<>(patient, null);
         if (head == null) {
-            head = new Node<T>(patient, null);
+            head = newNode;
         } else {
             Node<T> current = head;
             while (current.next != null) {
                 current = current.next;
             }
-            current.patient = patient;
+            current.next = newNode;
         }
         System.out.println("Patient added successfully.");
     }
 
 
-
+    /*
+    prints all patients
+     */
     public void display() {
-        if (head != null) {
-            Node<T> current = head;
-            while (current != null) {
-                System.out.println(current.patient);
-                current = current.next;
-            }
+        if (head == null) {
+            System.out.println("No hospital data found.");
+            return;
         }
+        Node<T> current = head;
+        while (current != null) {
+            System.out.println(current.patient.toString());
+            current = current.next;
+        }
+
     }
 }
