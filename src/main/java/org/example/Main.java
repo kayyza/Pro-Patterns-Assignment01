@@ -14,6 +14,8 @@ public class Main {
         patientList.addPatient(patient3);
         patientList.addPatient(patient4);
 
+        patientList.removePatient("John Doe");
+
         System.out.println();
         System.out.println("List of patients:");
         patientList.display();

@@ -32,6 +32,34 @@ public class Hospital<T> {
         System.out.println("Patient added successfully.");
     }
 
+    /*
+    removes a patient from the list by name
+     */
+   public void removePatient(String name) {
+       // checking if list is empty
+        if (head == null) {
+            System.out.println("Hospital data is empty.");
+            return;
+        }
+        // checks if the patient to be removed is the first patient in the list
+        if (((Patient) head.patient).getName().equals(name)) {
+            head = head.next;
+            System.out.println("Patient removed successfully.");
+            return;
+        }
+        // traverse the list to find the patient
+        Node<T> current = head;
+        while (current.next != null) {
+            if (((Patient) current.patient).getName().equals(name)) {
+                current.next = current.next.next;
+                System.out.println("Patient removed successfully.");
+                return;
+            }
+            current = current.next;
+
+        }
+       System.out.println("Patient not found.");
+   }
 
     /*
     prints all patients
