@@ -1,6 +1,6 @@
 package org.example;
 
-public class Patient {
+public class Patient<T> {
     private String name;
     private int age;
     private String severity;
@@ -57,7 +57,6 @@ public class Patient {
 
     @Override
     public String toString() {
-        return "Patient -> " + name + age + severity +
-                 inICU;
+        return "[Name: " + name +  ", Age: " + age + ", Severity: " + severity + ", In ICU: " + inICU + "]";
     }
 }
